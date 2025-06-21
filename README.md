@@ -63,8 +63,28 @@ I also cleaned key numerical columns by converting every value in each numeric c
 
 ### Univariate Analysis
 
+**1. `assistsat15`**
 
 
+ <iframe
+ src="assets/boxplot1.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
+
+Boxplot shows median around 2–3 assists and long upper tail up to 15+. A small but significant group of supports is highly involved early. This could be used to flag roamers who leave lane to help mid/jungle.
+
+**2. `csat15`**
+
+ <iframe
+ src="assets/boxplot2.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
+
+Boxplot shows peak around 20–30 CS, and some rare cases exceeding 100. Most supports have low CS, as expected. A spike around 20–30 may indicate shared farming behavior.
 
 
 ### Bivariate Analysis
