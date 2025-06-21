@@ -1,35 +1,56 @@
 # Roaming or Assisting Bot? What is the Impact of Support Leaving Bot Lane Pre-15 on Team's Likelihood of Winning?
 
-by Somin sPark(sompark@umich.edu)
+by Somin Park(sompark@umich.edu)
 
 ---
 
 ## Introduction
 
-This data science project explores 2022 League of Legends match data, focusing on the impact of leaving bot lane pre-15 on Attack Damage Carries (ADCs) success.
+In League of Legends, players take different roles with various strategic responsibilities. Therefore, identifying the best timing to decide when and how to roam the map is very important. One of the most pivotal strategic decisions for support players is whether to remain in the bot lane to assist bot player (Attack Damage Carry ADC champions) or leave the lane early to support objectives and skirmishes elsewhere (which if often called roaming). For this reason, this project investigates the impact of early roaming behavior of support players by analyzing whether support players roaming in the first 15 minutes of the game affects team success.
+
+This data science project explores 2022 League of Legends match data as its dataset.
 
 The dataset used in this project is from Oracle’s Elixir, a trusted repository of professional League of Legends match statistics. This dataset contains play-by-play and aggregated statistics for matches from 2022 competitive season with a total of 150,588 rows and 163 columns of data. There are 12,549 unique matches in the dataset and each match has 10 players, with 5 players on each team. 
 
-In League of Legends, identifying the best timing to decide when and how to roam the map is very important. One of the most pivotal strategic decisions for ADCs is whether to remain in the bot lane to farm or leave the lane early to support objectives and skirmishes elsewhere. For this reason, this project investigates the impact of early roaming behavior by analyzing how leaving the bot lane before 15 minutes affects ADC performance and team success.
-
 The research question for this project is the following:
 
-**How often do ADCs leave their lane early (pre-15 minutes), and how is that correlated with win rate?**
+**Does early-game roaming by support players correlate with winning the game?**
 
-This question will measure:
-1) The frequency and context of early roaming by ADCs
-2) Whether staying in the lane leads to higher personal or team success
-3) Whether the win rate increases or decreases depending on early bot lane presence.
+This question is important because roaming is often considered "high-risk, high-reward" strategy for support players in the game. Understanding whether roaming in early phase of the game contributes to game sucess will give meaningful insights for players and professional E-Sport coaches to better evaluate support player performance and strategies in the game. 
 
 
 Here are the columns that I will consider in this project:
+
+| Column Name         | Description                                                                 |
+|---------------------|------------------------------------------------------------------------------|
+| gameid              | Game Identification                                                         |
+| playername          | Name of the player (for tracking behavior per ADC)                          |
+| teamname            | Team identifier (used for aggregating results)                              |
+| position            | Position - ADC, Support, etc.                                                |
+| result              | Binary match result: 1 = win, 0 = loss                                       |
+| cspm                | CS per minute; proxy for laning priority and farming behavior                |
+| assistsat10         | Number of assists by 10 minutes; proxy for early map presence or roaming     |
+| assistsat15         | Number of assists by 15 minutes; proxy for early map presence or roaming     |
+| killsat10           | Number of kills by 10 minutes; may also indicate proactive early-game impact |
+| killsat15           | Number of kills by 15 minutes; may also indicate proactive early-game impact |
+| deathsat10          | Number of deaths by 10 minutes; may be useful to assess riskiness of roaming |
+| deathsat15          | Number of deaths by 15 minutes; may be useful to assess riskiness of roaming |
+| goldat10            | Total gold at 10 minutes; proxy for early economic success                   |
+| goldat15            | Total gold at 15 minutes; proxy for early economic success                   |
+| xpat10              | Experience points at 10 minutes; proxy for lane presence and fight participation |
+| xpat15              | Experience points at 15 minutes; proxy for lane presence and fight participation |
+| csat10              | Total creep score at 10 minutes; another early laning metric                 |
+| csat15              | Total creep score at 15 minutes; another early laning metric                 |
+| earned gpm          | Earned gold per minute; indicates map activity beyond just farming           |
+| dpm                 | Damage per minute; may correlate with combat involvement (i.e., roaming value)|
+| datacompleteness    | Whether or not the data is complete in this row                              |
+
 ---
 
-## Data Cleaning
+## Data Cleaning and Exploratory Data Analysis
 
 <iframe src="assets/10-80-enrollment.html" width=800 height=600 frameBorder=0></iframe>
 
-## Data Cleaning
 To prepare the dataset ready for analysis, there were few steps I took to clean things up and focus on parts that are relevant to this project. 
 
 First, I only kept the rows that are complete, using datacompleteness column that marks whether each row is fully recorded. I created a new dataframe to filter the data that includes the rows that are marked as complete to get rid of any rows that had missing information. 
@@ -40,12 +61,17 @@ Third, I only kept the relevant columns. I selected relevant columns that contai
 
 ---
 
-## Assessment of Missingness
+## Framing a Prediction Problem
 
 
 ---
 
-## Hypothesis Testing
+## Baseline Model
+
+
+---
+
+## Final Model
 
 
 ---
