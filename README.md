@@ -120,6 +120,7 @@ To do so, I binned support players into categories based on their number of assi
 Some of the insights from this table were:
 
 1) Higher assist counts correlate strongly with higher win rates, regardless of CS.
+
 2) Low-CS supports (0–10) with high assists perform best-> This suggests that early roaming and teamfight participation is more valuable than farming.
 
 
